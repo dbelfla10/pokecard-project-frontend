@@ -1,0 +1,42 @@
+.header {
+  padding: 33px 65px;
+  font-family: "Lato";
+  font-weight: 700;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.header__content {
+  max-width: 1360px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.header__logo {
+  margin: 0;
+  padding: 0;
+  width: 178px;
+  height: 50px;
+}
+
+.header__login-btn {
+  margin: 0 33px 0 auto;
+  padding: 0;
+  background-color: transparent;
+  color: #323232;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header__signup-btn {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: #323232;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+}
