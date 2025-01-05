@@ -6,10 +6,12 @@ import Footer from "../Footer/Footer";
 function App() {
   return (
     <div className="page">
-      <Header></Header>
       <div className="page__content">
-        <Main></Main>
-        <Footer></Footer>
+        <Header></Header>
+        <div className="page__container">
+          <Main></Main>
+          <Footer></Footer>
+        </div>
       </div>
     </div>
   );
