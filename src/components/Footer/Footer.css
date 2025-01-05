@@ -1,0 +1,26 @@
+.footer {
+  margin-top: auto;
+  padding-bottom: 30px;
+  font-family: "Lato";
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__author {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  margin: 0;
+  color: #434343;
+}
+
+.footer__date {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+  margin: 0;
+  color: #434343;
+}
