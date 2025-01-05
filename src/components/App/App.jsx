@@ -1,13 +1,13 @@
 import "./App.css";
 import Header from "../Header/Header";
+import Main from "../Main/Main";
 
 function App() {
   return (
     <div className="page">
       <Header></Header>
       <div className="page__content">
-        <h1 className="title">Holaaaaa</h1>
-        <p className="text">Como ezta</p>
+        <Main></Main>
       </div>
     </div>
   );

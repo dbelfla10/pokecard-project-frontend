@@ -1,5 +1,5 @@
 .header {
-  padding: 33px 65px;
+  padding: 33px 0px;
   font-family: "Lato";
   font-weight: 700;
   background-color: white;
@@ -8,6 +8,7 @@
 }
 
 .header__content {
+  padding: 0 65px;
   max-width: 1360px;
   display: flex;
   align-items: center;

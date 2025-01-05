@@ -1,0 +1,46 @@
+.hero {
+  margin-top: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__column {
+  display: flex;
+  justify-content: center;
+  gap: 33px;
+  flex-direction: column;
+  max-width: 402px;
+  align-items: center;
+  text-align: center;
+}
+
+.hero__text-image {
+  width: 322px;
+  height: 113px;
+}
+
+.hero__title {
+  font-size: 24px;
+  font-weight: 500;
+  color: #434343;
+}
+
+.hero__cards-image {
+  width: 851.49px;
+  height: 533.09px;
+  box-sizing: border-box;
+}
+
+.hero__cta-btn {
+  width: 221px;
+  height: 50px;
+  border: none;
+  background-color: #ffe365;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  padding: 9px 30px;
+  border-radius: 30px;
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.25));
+}
