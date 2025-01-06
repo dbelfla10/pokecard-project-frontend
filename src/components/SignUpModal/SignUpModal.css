@@ -11,5 +11,12 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 20px;
-  padding: 0px 0px 0px 12px;
+  padding: 0px;
+  margin-left: 12px;
+}
+
+.modal__login-button:hover {
+  color: #000;
+  border-bottom: 2px solid #ffe365;
+  cursor: pointer;
 }

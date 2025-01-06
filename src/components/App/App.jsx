@@ -10,6 +10,8 @@ import LoginModal from "../LoginModal/LoginModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
   const [activeModal, setActiveModal] = useState("");
 
   const handleLoginClick = () => {
@@ -28,11 +30,15 @@ function App() {
     <div className="page">
       <div className="page__content">
         <Header
+          isLoggedIn={isLoggedIn}
           handleSignupClick={handleSignupClick}
           handleLoginClick={handleLoginClick}
         ></Header>
         <div className="page__container">
-          <Main handleLoginClick={handleLoginClick}></Main>
+          <Main
+            handleLoginClick={handleLoginClick}
+            isLoggedIn={isLoggedIn}
+          ></Main>
           <Footer></Footer>
         </div>
       </div>
