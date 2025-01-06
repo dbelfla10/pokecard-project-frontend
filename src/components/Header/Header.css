@@ -25,7 +25,8 @@
 .header__user {
   margin: 0 0 0 50px;
   padding: 0;
-  font-size: 18px;
+  font-size: 20px;
+  color: #434343;
 }
 
 .header__login-btn {

@@ -1,6 +1,8 @@
 import "./Main.css";
 import cardsImage from "../../assets/cards.png";
 import text from "../../assets/Pokemon-Card-Generator-text.png";
+import text2 from "../../assets/Pokemon-Card-Generator2.png";
+import searchIcon from "../../assets/search-icon.svg";
 
 function Main({ isLoggedIn, handleLoginClick }) {
   return (
@@ -8,7 +10,29 @@ function Main({ isLoggedIn, handleLoginClick }) {
       <section className="hero">
         {isLoggedIn ? (
           <>
-            <div>Logged in!!!</div>
+            <div className="hero__colunm-logged">
+              <img
+                className="hero__text-image-logged"
+                src={text2}
+                alt="Pokecard-generator-text"
+              ></img>
+              <h2 className="hero__text">Search for a Pokémon</h2>
+              <div className="hero__searcher">
+                <input
+                  className="hero__imput"
+                  type="text"
+                  id="pokemon-name"
+                  placeholder="Pokémon name"
+                />
+                <button className="hero__search-btn" type="button">
+                  <img
+                    className="hero__search-icon"
+                    src={searchIcon}
+                    alt="search icon"
+                  />
+                </button>
+              </div>
+            </div>
           </>
         ) : (
           <>

@@ -10,7 +10,7 @@ function Header({ handleLoginClick, handleSignupClick, isLoggedIn }) {
 
         {isLoggedIn ? (
           <>
-            <p className="header__user">Hello master Username</p>
+            <p className="header__user">Hello master Username!</p>
             <button className="header__make-card-btn" type="button">
               Make Card
             </button>
