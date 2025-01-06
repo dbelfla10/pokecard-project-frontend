@@ -7,7 +7,7 @@ const LoginModal = ({
   handleCloseClick,
   isOpen,
   //   handleLogin,
-  //   handleSignupClick,
+  handleSignupClick,
 }) => {
   return (
     <ModalWithForm
@@ -42,7 +42,7 @@ const LoginModal = ({
         />
       </label>
       <button
-        //   onClick={handleSignupClick}
+        onClick={handleSignupClick}
         className="modal__signup-button"
         type="button"
       >

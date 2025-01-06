@@ -7,9 +7,18 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import LoginModal from "../LoginModal/LoginModal";
+import SignUpModal from "../SignUpModal/SignUpModal";
 
 function App() {
-  const [activeModal, setActiveModal] = useState("login");
+  const [activeModal, setActiveModal] = useState("");
+
+  const handleLoginClick = () => {
+    setActiveModal("login");
+  };
+
+  const handleSignupClick = () => {
+    setActiveModal("signup");
+  };
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -18,7 +27,10 @@ function App() {
   return (
     <div className="page">
       <div className="page__content">
-        <Header></Header>
+        <Header
+          handleSignupClick={handleSignupClick}
+          handleLoginClick={handleLoginClick}
+        ></Header>
         <div className="page__container">
           <Main></Main>
           <Footer></Footer>
@@ -27,7 +39,13 @@ function App() {
       <LoginModal
         isOpen={activeModal === "login"}
         handleCloseClick={closeActiveModal}
+        handleSignupClick={handleSignupClick}
       ></LoginModal>
+      <SignUpModal
+        isOpen={activeModal === "signup"}
+        handleCloseClick={closeActiveModal}
+        handleLoginClick={handleLoginClick}
+      ></SignUpModal>
     </div>
   );
 }
