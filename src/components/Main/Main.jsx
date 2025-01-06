@@ -2,7 +2,7 @@ import "./Main.css";
 import cardsImage from "../../assets/cards.png";
 import text from "../../assets/Pokemon-Card-Generator-text.png";
 
-function Main() {
+function Main({ handleLoginClick }) {
   return (
     <main>
       <section className="hero">
@@ -13,7 +13,11 @@ function Main() {
             alt="Pokecard-generator-text"
           ></img>
           <h1 className="hero__title">Make a card of your favorite Pokémon</h1>
-          <button className="hero__cta-btn" type="button">
+          <button
+            className="hero__cta-btn"
+            type="button"
+            onClick={handleLoginClick}
+          >
             Make 'Em All
           </button>
         </div>

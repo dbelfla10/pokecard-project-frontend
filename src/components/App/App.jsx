@@ -32,7 +32,7 @@ function App() {
           handleLoginClick={handleLoginClick}
         ></Header>
         <div className="page__container">
-          <Main></Main>
+          <Main handleLoginClick={handleLoginClick}></Main>
           <Footer></Footer>
         </div>
       </div>
