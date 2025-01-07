@@ -69,6 +69,7 @@
   border: none;
   font-size: 20px;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .header__make-card-btn:hover {
@@ -92,6 +93,7 @@
   font-weight: 700;
   display: flex;
   gap: 5px;
+  text-decoration: none;
 }
 
 .header__profile-btn:hover {

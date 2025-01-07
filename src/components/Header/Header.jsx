@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./Header.css";
 import logo from "../../assets/Pokecard-logo.svg";
 import userIcon from "../../assets/user.svg";
@@ -6,22 +8,24 @@ function Header({ handleLoginClick, handleSignupClick, isLoggedIn }) {
   return (
     <header className="header">
       <div className="header__content">
-        <img className="header__logo" src={logo} alt="Logo" />
+        <Link to="/">
+          <img className="header__logo" src={logo} alt="Logo" />
+        </Link>
 
         {isLoggedIn ? (
           <>
             <p className="header__user">Hello master Username!</p>
-            <button className="header__make-card-btn" type="button">
+            <Link to="/" className="header__make-card-btn">
               Make Card
-            </button>
-            <button className="header__profile-btn" type="button">
+            </Link>
+            <Link to="/profile" className="header__profile-btn">
               <img
                 className="header__user-icon"
                 src={userIcon}
                 alt="user icon"
               ></img>
               My Cards
-            </button>
+            </Link>
           </>
         ) : (
           <>

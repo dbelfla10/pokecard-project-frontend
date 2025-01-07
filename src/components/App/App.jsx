@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
-// import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import LoginModal from "../LoginModal/LoginModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const [activeModal, setActiveModal] = useState("");
 
@@ -33,25 +34,34 @@ function App() {
           isLoggedIn={isLoggedIn}
           handleSignupClick={handleSignupClick}
           handleLoginClick={handleLoginClick}
-        ></Header>
+        />
         <div className="page__container">
-          <Main
-            handleLoginClick={handleLoginClick}
-            isLoggedIn={isLoggedIn}
-          ></Main>
-          <Footer></Footer>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  handleLoginClick={handleLoginClick}
+                  isLoggedIn={isLoggedIn}
+                />
+              }
+            />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+
+          <Footer />
         </div>
       </div>
       <LoginModal
         isOpen={activeModal === "login"}
         handleCloseClick={closeActiveModal}
         handleSignupClick={handleSignupClick}
-      ></LoginModal>
+      />
       <SignUpModal
         isOpen={activeModal === "signup"}
         handleCloseClick={closeActiveModal}
         handleLoginClick={handleLoginClick}
-      ></SignUpModal>
+      />
     </div>
   );
 }
