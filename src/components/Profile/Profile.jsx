@@ -1,5 +1,6 @@
 import "./Profile.css";
 import profileText from "../../assets/Welcome-collection.png";
+import Card from "../Card/Card";
 
 function Profile() {
   return (
@@ -20,6 +21,7 @@ function Profile() {
           </button>
         </div>
       </section>
+      <Card />
     </div>
   );
 }
