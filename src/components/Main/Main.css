@@ -1,5 +1,5 @@
 .hero {
-  margin: 96px 0 123px;
+  margin: 96px 0 121px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +11,7 @@
 }
 
 .hero__colunm-logged {
-  margin: 100px 0 246px 0;
+  margin: 100px 0 244px 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
