@@ -1,5 +1,5 @@
 .profile {
-  margin: 96px 0 121px;
+  margin: 121px 0 121px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,6 +46,11 @@
   font-weight: 700;
 }
 
+.profile__change-name-btn:hover {
+  cursor: pointer;
+  color: black;
+}
+
 .profile__logout-btn {
   margin: 0;
   padding: 0;
@@ -54,4 +59,9 @@
   border: none;
   font-size: 20px;
   font-weight: 700;
+}
+
+.profile__logout-btn:hover {
+  cursor: pointer;
+  color: black;
 }
