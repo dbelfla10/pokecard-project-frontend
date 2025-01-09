@@ -6,7 +6,7 @@ import "./LoginModal.css";
 const LoginModal = ({
   handleCloseClick,
   isOpen,
-  //   handleLogin,
+  handleLogin,
   handleSignupClick,
 }) => {
   return (
@@ -15,7 +15,7 @@ const LoginModal = ({
       buttonText="Log In"
       handleCloseClick={handleCloseClick}
       isOpen={isOpen}
-      // onSubmit={handleSubmit}
+      onSubmit={handleLogin}
     >
       <label htmlFor="email" className="modal__label">
         Email{""}

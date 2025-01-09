@@ -1,0 +1,10 @@
+.modal__content_type_confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+
+.modal__confirmation-text {
+  max-width: 500px;
+}

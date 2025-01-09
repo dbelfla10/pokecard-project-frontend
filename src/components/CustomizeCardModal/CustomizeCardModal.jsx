@@ -3,11 +3,15 @@ import Card from "../Card/Card";
 import { defaultPokeCard } from "../../utils/constants";
 import { useState } from "react";
 
-function CustomizeCardModal({ activeModal, handleCloseClick }) {
+function CustomizeCardModal({
+  activeModal,
+  handleCloseClick,
+  handleCustomizeCardClick,
+}) {
   const [color, setColor] = useState("");
 
   return (
-    <div className={`modal ${activeModal && "modal_opened"}`}>
+    <div className={`modal ${activeModal === "card" && "modal_opened"}`}>
       <div
         className={`modal__content modal__content_type_card ${
           activeModal && "modal__content_opened"
@@ -28,7 +32,11 @@ function CustomizeCardModal({ activeModal, handleCloseClick }) {
           <option value="#FFF291">Yellow</option>
           <option value="#BE9FEE">Purple</option>
         </select>
-        <button className="modal__submit" type="button">
+        <button
+          className="modal__submit"
+          type="button"
+          onClick={handleCustomizeCardClick}
+        >
           Save
         </button>
         <button

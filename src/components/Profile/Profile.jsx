@@ -3,7 +3,7 @@ import profileText from "../../assets/Welcome-collection.png";
 import Card from "../Card/Card";
 import CardSection from "../CardSection/CardSection";
 
-function Profile() {
+function Profile({ handleLogout }) {
   return (
     <div className="profile">
       <section className="profile__user-colunm">
@@ -17,7 +17,11 @@ function Profile() {
           <button type="button" className="profile__change-name-btn">
             Change name
           </button>
-          <button type="button" className="profile__logout-btn">
+          <button
+            onClick={handleLogout}
+            type="button"
+            className="profile__logout-btn"
+          >
             Log out
           </button>
         </div>
