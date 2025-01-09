@@ -15,7 +15,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  const [activeModal, setActiveModal] = useState("card");
+  const [activeModal, setActiveModal] = useState("");
 
   const navigate = useNavigate();
 
@@ -25,6 +25,10 @@ function App() {
 
   const handleSignupClick = () => {
     setActiveModal("signup");
+  };
+
+  const handleSearchClick = () => {
+    setActiveModal("card");
   };
 
   const closeActiveModal = () => {
@@ -47,6 +51,7 @@ function App() {
                 <Main
                   handleLoginClick={handleLoginClick}
                   isLoggedIn={isLoggedIn}
+                  handleSearchClick={handleSearchClick}
                 />
               }
             />

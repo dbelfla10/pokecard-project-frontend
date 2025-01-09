@@ -4,7 +4,7 @@ import text from "../../assets/Pokemon-Card-Generator-text.png";
 import text2 from "../../assets/Pokemon-Card-Generator2.png";
 import searchIcon from "../../assets/search-icon.svg";
 
-function Main({ isLoggedIn, handleLoginClick }) {
+function Main({ isLoggedIn, handleLoginClick, handleSearchClick }) {
   return (
     <main>
       <section className="hero">
@@ -24,7 +24,11 @@ function Main({ isLoggedIn, handleLoginClick }) {
                   id="pokemon-name"
                   placeholder="Pokémon name"
                 />
-                <button className="hero__search-btn" type="button">
+                <button
+                  className="hero__search-btn"
+                  type="button"
+                  onClick={handleSearchClick}
+                >
                   <img
                     className="hero__search-icon"
                     src={searchIcon}

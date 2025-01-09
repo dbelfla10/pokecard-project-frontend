@@ -2,10 +2,13 @@ import "./Card.css";
 // import charizard from "../../assets/charizard.png";
 import hpIcon from "../../assets/hp-icon.svg";
 
-function Card({ card }) {
+function Card({ card, color }) {
   return (
     <div className="card">
-      <div className="card__container" style={{ backgroundColor: card.color }}>
+      <div
+        className="card__container"
+        style={{ backgroundColor: color ? color : card.color }}
+      >
         <div className="card__xp-circle">
           <p className="card__xp-number">{card.base_experience}</p>
           <p className="card__xp">xp</p>

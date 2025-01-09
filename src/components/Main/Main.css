@@ -15,7 +15,8 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  max-width: 402px;
+  width: 100%;
+  max-width: 886px;
   align-items: center;
   text-align: center;
 }
@@ -30,10 +31,11 @@
   display: flex;
   gap: 17px;
   margin-top: 15px;
+  width: 100%;
 }
 
 .hero__imput {
-  width: 800px;
+  width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.15));
