@@ -1,0 +1,21 @@
+.card-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: 97px;
+  background-color: white;
+  padding: 80px 10px;
+  border-radius: 20px;
+}
+
+.card-section__cards {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 340px);
+  row-gap: 50px;
+  column-gap: 80px;
+  justify-content: center;
+}

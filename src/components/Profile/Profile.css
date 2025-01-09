@@ -49,6 +49,7 @@
 .profile__change-name-btn:hover {
   cursor: pointer;
   color: black;
+  border-bottom: 2px solid #ffe365;
 }
 
 .profile__logout-btn {
@@ -64,4 +65,5 @@
 .profile__logout-btn:hover {
   cursor: pointer;
   color: black;
+  border-bottom: 2px solid #ffe365;
 }

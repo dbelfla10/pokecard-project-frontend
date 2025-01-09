@@ -9,12 +9,13 @@ import Footer from "../Footer/Footer";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import LoginModal from "../LoginModal/LoginModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
+import CustomizeCardModal from "../CustomizeCardModal/CustomizeCardModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  const [activeModal, setActiveModal] = useState("");
+  const [activeModal, setActiveModal] = useState("card");
 
   const navigate = useNavigate();
 
@@ -71,6 +72,10 @@ function App() {
         isOpen={activeModal === "signup"}
         handleCloseClick={closeActiveModal}
         handleLoginClick={handleLoginClick}
+      />
+      <CustomizeCardModal
+        activeModal={activeModal}
+        handleCloseClick={closeActiveModal}
       />
     </div>
   );

@@ -7,13 +7,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
 }
 
 .card__container {
   width: 310px;
   height: 420px;
-  background-color: #eb927c;
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -70,6 +68,7 @@
   background-color: white;
   border: 5px solid #ffe365;
   filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.1));
+  object-fit: contain;
 }
 
 .card__title-container {
