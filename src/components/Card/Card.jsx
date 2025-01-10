@@ -32,7 +32,9 @@ function Card({ card, color }) {
           alt="pokemon-img"
         />
         <div className="card__title-container">
-          <h2 className="card__title">{card.name}</h2>
+          <h2 className="card__title">
+            {card.name[0].toUpperCase() + card.name.slice(1)}
+          </h2>
         </div>
         <div className="card__stats">
           <div className="card__stat">
