@@ -11,6 +11,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import SignUpModal from "../SignUpModal/SignUpModal";
 import CustomizeCardModal from "../CustomizeCardModal/CustomizeCardModal";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
+import ErrorModal from "../ErrorModal/ErrorModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { getPokemon } from "../../utils/api";
 
@@ -45,7 +46,10 @@ function App() {
       .then(() => {
         console.log(currentPokemon);
       })
-      .catch(console.error);
+      .catch((err) => {
+        setActiveModal("error");
+        console.log(err);
+      });
   };
 
   const handleCustomizeCardClick = () => {
@@ -125,7 +129,10 @@ function App() {
       <ConfirmationModal
         activeModal={activeModal}
         handleCloseClick={closeActiveModal}
-        handleSubmit={handleSubmit}
+      />
+      <ErrorModal
+        activeModal={activeModal}
+        handleCloseClick={closeActiveModal}
       />
     </div>
   );

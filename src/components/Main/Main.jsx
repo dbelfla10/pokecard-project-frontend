@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./Main.css";
 import cardsImage from "../../assets/cards.png";
 import text from "../../assets/Pokemon-Card-Generator-text.png";
@@ -5,6 +7,12 @@ import text2 from "../../assets/Pokemon-Card-Generator2.png";
 import searchIcon from "../../assets/search-icon.svg";
 
 function Main({ isLoggedIn, handleLoginClick, handleSearchClick }) {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <main>
       <section className="hero">
@@ -23,11 +31,14 @@ function Main({ isLoggedIn, handleLoginClick, handleSearchClick }) {
                   type="text"
                   id="pokemon-name"
                   placeholder="Pokémon name"
+                  value={inputValue}
+                  onChange={handleInputChange}
                 />
                 <button
                   className="hero__search-btn"
                   type="button"
                   onClick={handleSearchClick}
+                  disabled={!inputValue.trim()}
                 >
                   <img
                     className="hero__search-icon"
