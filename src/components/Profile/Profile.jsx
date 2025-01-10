@@ -27,7 +27,7 @@ function Profile({ handleLogout }) {
         </div>
       </section>
       {/* <Card /> */}
-      <CardSection />
+      {/* <CardSection /> */}
     </div>
   );
 }

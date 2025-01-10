@@ -7,6 +7,7 @@ function CustomizeCardModal({
   activeModal,
   handleCloseClick,
   handleCustomizeCardClick,
+  currentPokemon,
 }) {
   const [color, setColor] = useState("");
 
@@ -17,7 +18,7 @@ function CustomizeCardModal({
           activeModal && "modal__content_opened"
         }`}
       >
-        <Card card={defaultPokeCard} color={color} />
+        <Card card={currentPokemon} color={color} />
         <h2 className="modal__title modal__title_type_card">
           Customize card color
         </h2>

@@ -12,10 +12,12 @@ import SignUpModal from "../SignUpModal/SignUpModal";
 import CustomizeCardModal from "../CustomizeCardModal/CustomizeCardModal";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import { getPokemon } from "../../utils/api";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const [currentPokemon, setCurrentPokemon] = useState({});
   const [activeModal, setActiveModal] = useState("");
 
   const navigate = useNavigate();
@@ -29,7 +31,21 @@ function App() {
   };
 
   const handleSearchClick = () => {
-    setActiveModal("card");
+    const pokemonName = document
+      .getElementById("pokemon-name")
+      .value.toLowerCase();
+
+    getPokemon(pokemonName)
+      .then((data) => {
+        const resPokemon = data;
+        setCurrentPokemon(resPokemon);
+
+        setActiveModal("card");
+      })
+      .then(() => {
+        console.log(currentPokemon);
+      })
+      .catch(console.error);
   };
 
   const handleCustomizeCardClick = () => {
@@ -104,6 +120,7 @@ function App() {
         activeModal={activeModal}
         handleCloseClick={closeActiveModal}
         handleCustomizeCardClick={handleCustomizeCardClick}
+        currentPokemon={currentPokemon}
       />
       <ConfirmationModal
         activeModal={activeModal}
