@@ -33,7 +33,7 @@ function Card({ card, color }) {
         />
         <div className="card__title-container">
           <h2 className="card__title">
-            {card.name[0].toUpperCase() + card.name.slice(1)}
+            {card.name ? card.name[0].toUpperCase() + card.name.slice(1) : ""}
           </h2>
         </div>
         <div className="card__stats">
