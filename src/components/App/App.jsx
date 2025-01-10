@@ -13,13 +13,15 @@ import CustomizeCardModal from "../CustomizeCardModal/CustomizeCardModal";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import ErrorModal from "../ErrorModal/ErrorModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import Preloader from "../Preloader/Preloader";
 import { getPokemon } from "../../utils/api";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const [currentPokemon, setCurrentPokemon] = useState({});
   const [activeModal, setActiveModal] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -36,6 +38,8 @@ function App() {
       .getElementById("pokemon-name")
       .value.toLowerCase();
 
+    setIsLoading(true);
+
     getPokemon(pokemonName)
       .then((data) => {
         const resPokemon = data;
@@ -49,6 +53,9 @@ function App() {
       .catch((err) => {
         setActiveModal("error");
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -109,6 +116,7 @@ function App() {
           <Footer />
         </div>
       </div>
+      {isLoading && <Preloader />}
       <LoginModal
         isOpen={activeModal === "login"}
         handleCloseClick={closeActiveModal}
