@@ -25,30 +25,12 @@ function App() {
 
   useEffect(() => {
     const user = localStorage.getItem("user");
-    const storedPokemonCards = localStorage.getItem("pokemonCards");
-    const loggedIn = localStorage.getItem("isLoggedIn");
 
     if (user) {
+      setIsLoggedIn(true);
       setUser(JSON.parse(user));
     }
-
-    if (storedPokemonCards) {
-      setPokemonCards(JSON.parse(storedPokemonCards));
-    }
-
-    if (loggedIn === "true") {
-      setIsLoggedIn(true);
-    }
   }, []);
-
-  useEffect(() => {
-    console.log("Saving pokemonCards to localStorage:", pokemonCards);
-    localStorage.setItem("pokemonCards", JSON.stringify(pokemonCards));
-  }, [pokemonCards]);
-
-  useEffect(() => {
-    localStorage.setItem("isLoggedIn", isLoggedIn);
-  }, [isLoggedIn]);
 
   const navigate = useNavigate();
 
@@ -113,8 +95,6 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("pokemonCards");
     setUser(null);
     setIsLoggedIn(false);
     navigate("/");
