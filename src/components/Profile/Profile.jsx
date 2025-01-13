@@ -3,7 +3,7 @@ import profileText from "../../assets/Welcome-collection.png";
 import Card from "../Card/Card";
 import CardSection from "../CardSection/CardSection";
 
-function Profile({ handleLogout }) {
+function Profile({ handleLogout, pokemonCards, handleAddCard }) {
   return (
     <div className="profile">
       <section className="profile__user-colunm">
@@ -26,8 +26,8 @@ function Profile({ handleLogout }) {
           </button>
         </div>
       </section>
-      {/* <Card /> */}
-      {/* <CardSection /> */}
+
+      <CardSection pokemonCards={pokemonCards} handleAddCard={handleAddCard} />
     </div>
   );
 }

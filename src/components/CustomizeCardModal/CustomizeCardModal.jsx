@@ -36,7 +36,7 @@ function CustomizeCardModal({
         <button
           className="modal__submit"
           type="button"
-          onClick={handleCustomizeCardClick}
+          onClick={() => handleCustomizeCardClick(color)}
         >
           Save
         </button>

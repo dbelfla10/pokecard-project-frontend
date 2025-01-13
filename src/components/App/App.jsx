@@ -22,6 +22,7 @@ function App() {
   const [currentPokemon, setCurrentPokemon] = useState({});
   const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [pokemonCards, setPokemonCards] = useState([]);
 
   const navigate = useNavigate();
 
@@ -59,7 +60,9 @@ function App() {
       });
   };
 
-  const handleCustomizeCardClick = () => {
+  const handleCustomizeCardClick = (color) => {
+    const updatedPokemon = { ...currentPokemon, color };
+    setPokemonCards([updatedPokemon, ...pokemonCards]);
     setActiveModal("confirmation");
   };
 
@@ -80,6 +83,10 @@ function App() {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    navigate("/");
+  };
+
+  const handleAddCard = () => {
     navigate("/");
   };
 
@@ -107,7 +114,11 @@ function App() {
               path="/profile"
               element={
                 <ProtectedRoute isLoggedIn={isLoggedIn}>
-                  <Profile handleLogout={handleLogout} />
+                  <Profile
+                    handleLogout={handleLogout}
+                    pokemonCards={pokemonCards}
+                    handleAddCard={handleAddCard}
+                  />
                 </ProtectedRoute>
               }
             />
