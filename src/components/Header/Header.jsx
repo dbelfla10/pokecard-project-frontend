@@ -4,7 +4,9 @@ import "./Header.css";
 import logo from "../../assets/Pokecard-logo.svg";
 import userIcon from "../../assets/user.svg";
 
-function Header({ handleLoginClick, handleSignupClick, isLoggedIn }) {
+function Header({ handleLoginClick, handleSignupClick, isLoggedIn, user }) {
+  const userName = user && user.name ? user.name : "Username";
+
   return (
     <header className="header">
       <div className="header__content">
@@ -14,7 +16,7 @@ function Header({ handleLoginClick, handleSignupClick, isLoggedIn }) {
 
         {isLoggedIn ? (
           <>
-            <p className="header__user">Hello master Username!</p>
+            <p className="header__user">Hello master {userName}!</p>
             <Link to="/" className="header__make-card-btn">
               Make Card
             </Link>

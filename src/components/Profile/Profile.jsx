@@ -8,7 +8,10 @@ function Profile({
   pokemonCards,
   handleAddCard,
   handleDeleteCard,
+  user,
 }) {
+  const userName = user && user.name ? user.name : "Username";
+
   return (
     <div className="profile">
       <section className="profile__user-colunm">
@@ -17,7 +20,7 @@ function Profile({
           src={profileText}
           alt="Welcome-to-your-collection"
         ></img>
-        <p className="profile__username">Master Username</p>
+        <p className="profile__username">Master {userName}</p>
         <div className="profile__buttons">
           <button type="button" className="profile__change-name-btn">
             Change name

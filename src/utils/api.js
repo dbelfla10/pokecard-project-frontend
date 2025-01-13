@@ -4,7 +4,6 @@ function getPokemon(pokemonName) {
       return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
     })
     .then((data) => {
-      console.log(data);
       return data;
     });
 }

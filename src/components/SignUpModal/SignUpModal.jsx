@@ -6,16 +6,38 @@ const SignUpModal = ({
   handleCloseClick,
   isOpen,
   handleLoginClick,
-  //   handleRegistration,
+  handleSignUp,
 }) => {
+  const [name, setName] = useState("");
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const [email, setEmail] = useState("");
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const [password, setPassword] = useState("");
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const disableSubmit = !name || !email || !password;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSignUp({ name, email, password });
+  };
+
   return (
     <ModalWithForm
       title="Sign Up"
       buttonText="Sign Up"
       handleCloseClick={handleCloseClick}
       isOpen={isOpen}
-      //   onSubmit={handleSubmit}
-      //   disableSubmit={disableSubmit}
+      onSubmit={handleSubmit}
+      disableSubmit={disableSubmit}
     >
       <label htmlFor="signup-name" className="modal__label">
         Name *{""}
@@ -24,8 +46,8 @@ const SignUpModal = ({
           className="modal__input"
           id="signup-name"
           placeholder="Name"
-          //   value={name}
-          //   onChange={handleNameChange}
+          value={name}
+          onChange={handleNameChange}
           required
         />
       </label>
@@ -36,8 +58,8 @@ const SignUpModal = ({
           className="modal__input"
           id="signup-email"
           placeholder="Email"
-          //   value={email}
-          //   onChange={handleEmailChange}
+          value={email}
+          onChange={handleEmailChange}
           required
         />
       </label>
@@ -48,8 +70,8 @@ const SignUpModal = ({
           className="modal__input"
           id="signup-password"
           placeholder="Password"
-          //   value={password}
-          //   onChange={handlePasswordChange}
+          value={password}
+          onChange={handlePasswordChange}
           required
         />
       </label>

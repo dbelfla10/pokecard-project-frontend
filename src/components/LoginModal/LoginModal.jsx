@@ -9,13 +9,31 @@ const LoginModal = ({
   handleLogin,
   handleSignupClick,
 }) => {
+  const [email, setEmail] = useState("");
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const [password, setPassword] = useState("");
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleLogin({ email, password });
+  };
+
+  const disableSubmit = !email || !password;
+
   return (
     <ModalWithForm
       title="Log In"
       buttonText="Log In"
       handleCloseClick={handleCloseClick}
       isOpen={isOpen}
-      onSubmit={handleLogin}
+      onSubmit={handleSubmit}
+      disableSubmit={disableSubmit}
     >
       <label htmlFor="email" className="modal__label">
         Email{""}
@@ -24,8 +42,8 @@ const LoginModal = ({
           className="modal__input"
           id="email"
           placeholder="Email"
-          // value={email}
-          // onChange={handleEmailChange}
+          value={email}
+          onChange={handleEmailChange}
           required
         />
       </label>
@@ -36,8 +54,8 @@ const LoginModal = ({
           className="modal__input"
           id="password"
           placeholder="Password"
-          // value={password}
-          // onChange={handlePasswordChange}
+          value={password}
+          onChange={handlePasswordChange}
           required
         />
       </label>
