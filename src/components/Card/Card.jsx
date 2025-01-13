@@ -1,10 +1,40 @@
+import React, { useState, useRef } from "react";
+import { toPng, toSvg } from "html-to-image";
+// import html2canvas from "html2canvas";
+
 import "./Card.css";
 // import charizard from "../../assets/charizard.png";
 import hpIcon from "../../assets/hp-icon.svg";
+import downloadIcon from "../../assets/download-icon.svg";
+import deleteIcon from "../../assets/delete-icon.svg";
 
-function Card({ card, color }) {
+function Card({
+  card,
+  color,
+  handleDeleteCard,
+  hideDeleteButton,
+  hideDownloadButton,
+}) {
+  const cardRef = useRef();
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  const handleDownload = () => {
+    if (cardRef.current && isImageLoaded) {
+      toPng(cardRef.current)
+        .then((dataUrl) => {
+          const link = document.createElement("a");
+          link.download = `${card.name}.png`;
+          link.href = dataUrl;
+          link.click();
+        })
+        .catch((err) => {
+          console.error("Failed to download image", err);
+        });
+    }
+  };
+
   return (
-    <div className="card">
+    <div className="card" ref={cardRef}>
       <div
         className="card__container"
         style={{
@@ -21,6 +51,8 @@ function Card({ card, color }) {
         </p>
         <img
           className="card__image"
+          crossOrigin="anonymous"
+          onLoad={() => setIsImageLoaded(true)}
           src={
             card.sprites &&
             card.sprites.other &&
@@ -63,6 +95,33 @@ function Card({ card, color }) {
               : ""}
           </p>
         </div>
+        {!hideDeleteButton && (
+          <button
+            className="card__delete-btn"
+            type="button"
+            onClick={() => handleDeleteCard(card.id)}
+          >
+            <img
+              className="card__delete-icon"
+              src={deleteIcon}
+              alt="delete icon"
+            />
+          </button>
+        )}
+        {!hideDownloadButton && (
+          <button
+            className="card__download-btn"
+            type="button"
+            onClick={handleDownload}
+            disabled={!isImageLoaded}
+          >
+            <img
+              className="card__download-icon"
+              src={downloadIcon}
+              alt="download icon"
+            />
+          </button>
+        )}
       </div>
     </div>
   );

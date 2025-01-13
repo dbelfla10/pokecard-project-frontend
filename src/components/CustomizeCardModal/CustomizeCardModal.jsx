@@ -18,7 +18,12 @@ function CustomizeCardModal({
           activeModal && "modal__content_opened"
         }`}
       >
-        <Card card={currentPokemon} color={color} />
+        <Card
+          card={currentPokemon}
+          color={color}
+          hideDeleteButton={true}
+          hideDownloadButton={true}
+        />
         <h2 className="modal__title modal__title_type_card">
           Customize card color
         </h2>

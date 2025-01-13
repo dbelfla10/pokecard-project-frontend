@@ -90,6 +90,10 @@ function App() {
     navigate("/");
   };
 
+  const handleDeleteCard = (id) => {
+    setPokemonCards(pokemonCards.filter((card) => card.id !== id));
+  };
+
   return (
     <div className="page">
       <div className="page__content">
@@ -118,6 +122,7 @@ function App() {
                     handleLogout={handleLogout}
                     pokemonCards={pokemonCards}
                     handleAddCard={handleAddCard}
+                    handleDeleteCard={handleDeleteCard}
                   />
                 </ProtectedRoute>
               }

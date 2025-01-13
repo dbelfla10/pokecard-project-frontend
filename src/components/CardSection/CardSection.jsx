@@ -3,7 +3,7 @@ import { defaultPokeCards } from "../../utils/constants";
 import Card from "../Card/Card";
 import noCardsText from "../../assets/no-cards-text.png";
 
-function CardSection({ pokemonCards, handleAddCard }) {
+function CardSection({ pokemonCards, handleAddCard, handleDeleteCard }) {
   return (
     <div className="card-section">
       {pokemonCards.length === 0 ? (
@@ -24,7 +24,13 @@ function CardSection({ pokemonCards, handleAddCard }) {
       ) : (
         <ul className="card-section__cards">
           {pokemonCards.map((card) => {
-            return <Card key={card.id} card={card} />;
+            return (
+              <Card
+                key={card.id}
+                card={card}
+                handleDeleteCard={handleDeleteCard}
+              />
+            );
           })}
         </ul>
       )}
