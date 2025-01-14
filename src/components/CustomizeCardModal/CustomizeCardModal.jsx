@@ -1,12 +1,12 @@
 import "./CustomizeCardModal.css";
 import Card from "../Card/Card";
-import { defaultPokeCard } from "../../utils/constants";
+// import { defaultPokeCard } from "../../utils/constants";
 import { useState } from "react";
 
 function CustomizeCardModal({
   activeModal,
   handleCloseClick,
-  handleCustomizeCardClick,
+  handleCustomizeCard,
   currentPokemon,
 }) {
   const [color, setColor] = useState("");
@@ -41,7 +41,7 @@ function CustomizeCardModal({
         <button
           className="modal__submit"
           type="button"
-          onClick={() => handleCustomizeCardClick(color)}
+          onClick={() => handleCustomizeCard(color)}
         >
           Save
         </button>

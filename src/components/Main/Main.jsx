@@ -6,7 +6,7 @@ import text from "../../assets/Pokemon-Card-Generator-text.png";
 import text2 from "../../assets/Pokemon-Card-Generator2.png";
 import searchIcon from "../../assets/search-icon.svg";
 
-function Main({ isLoggedIn, handleLoginClick, handleSearchClick }) {
+function Main({ isLoggedIn, handleLoginClick, handleSearch }) {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (e) => {
@@ -37,7 +37,7 @@ function Main({ isLoggedIn, handleLoginClick, handleSearchClick }) {
                 <button
                   className="hero__search-btn"
                   type="button"
-                  onClick={handleSearchClick}
+                  onClick={handleSearch}
                   disabled={!inputValue.trim()}
                 >
                   <img

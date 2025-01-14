@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
-import { toPng, toSvg } from "html-to-image";
-// import html2canvas from "html2canvas";
+import { toPng } from "html-to-image";
 
 import "./Card.css";
 // import charizard from "../../assets/charizard.png";
@@ -33,67 +32,70 @@ function Card({
     }
   };
 
+  // Card data constants
+  const cardXp = card.base_experience ? card.base_experience : 0;
+  const cardColor = color ? color : card.color ? card.color : "white";
+  const cardHp = card.stats && card.stats[0] ? card.stats[0].base_stat : 0;
+  const cardImg =
+    card.sprites &&
+    card.sprites.other &&
+    card.sprites.other["official-artwork"] &&
+    card.sprites.other["official-artwork"].front_default
+      ? card.sprites.other["official-artwork"].front_default
+      : "";
+  const cardName = card.name
+    ? card.name[0].toUpperCase() + card.name.slice(1)
+    : "";
+  const cardAtk = card.stats && card.stats[1] ? card.stats[1].base_stat : 0;
+  const cardDef = card.stats && card.stats[2] ? card.stats[2].base_stat : 0;
+  const cardVel = card.stats && card.stats[5] ? card.stats[5].base_stat : 0;
+  const cardType =
+    card.types && card.types[0].type.name
+      ? card.types[0].type.name.toUpperCase()
+      : "";
+
   return (
     <div className="card" ref={cardRef}>
       <div
         className="card__container"
         style={{
-          backgroundColor: color ? color : card.color ? card.color : "white",
+          backgroundColor: cardColor,
         }}
       >
         <div className="card__xp-circle">
-          <p className="card__xp-number">{card.base_experience}</p>
+          <p className="card__xp-number">{cardXp}</p>
           <p className="card__xp">xp</p>
         </div>
         <p className="card__hp">
-          {card.stats && card.stats[0] ? card.stats[0].base_stat : 0} HP{" "}
+          {cardHp} HP{" "}
           <img className="card__hp-icon" src={hpIcon} alt="hp icon" />
         </p>
         <img
           className="card__image"
           crossOrigin="anonymous"
           onLoad={() => setIsImageLoaded(true)}
-          src={
-            card.sprites &&
-            card.sprites.other &&
-            card.sprites.other["official-artwork"] &&
-            card.sprites.other["official-artwork"].front_default
-              ? card.sprites.other["official-artwork"].front_default
-              : ""
-          }
+          src={cardImg}
           alt="pokemon-img"
         />
         <div className="card__title-container">
-          <h2 className="card__title">
-            {card.name ? card.name[0].toUpperCase() + card.name.slice(1) : ""}
-          </h2>
+          <h2 className="card__title">{cardName}</h2>
         </div>
         <div className="card__stats">
           <div className="card__stat">
-            <p className="card__stat-number">
-              {card.stats && card.stats[1] ? card.stats[1].base_stat : 0}
-            </p>
+            <p className="card__stat-number">{cardAtk}</p>
             <p className="card__stat-tla">ATK</p>
           </div>
           <div className="card__stat">
-            <p className="card__stat-number">
-              {card.stats && card.stats[2] ? card.stats[2].base_stat : 0}
-            </p>
+            <p className="card__stat-number">{cardDef}</p>
             <p className="card__stat-tla">DEF</p>
           </div>
           <div className="card__stat">
-            <p className="card__stat-number">
-              {card.stats && card.stats[5] ? card.stats[5].base_stat : 0}
-            </p>
+            <p className="card__stat-number">{cardVel}</p>
             <p className="card__stat-tla">VEL</p>
           </div>
         </div>
         <div className="card__poke-type-container">
-          <p className="card__poke-type">
-            {card.types && card.types[0].type.name
-              ? card.types[0].type.name.toUpperCase()
-              : ""}
-          </p>
+          <p className="card__poke-type">{cardType}</p>
         </div>
         {!hideDeleteButton && (
           <button

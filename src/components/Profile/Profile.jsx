@@ -1,6 +1,5 @@
 import "./Profile.css";
 import profileText from "../../assets/Welcome-collection.png";
-import Card from "../Card/Card";
 import CardSection from "../CardSection/CardSection";
 
 function Profile({

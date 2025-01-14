@@ -1,5 +1,5 @@
 import "./CardSection.css";
-import { defaultPokeCards } from "../../utils/constants";
+// import { defaultPokeCards } from "../../utils/constants";
 import Card from "../Card/Card";
 import noCardsText from "../../assets/no-cards-text.png";
 

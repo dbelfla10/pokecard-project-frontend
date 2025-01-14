@@ -33,7 +33,23 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleCloseEscape = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleCloseEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleCloseEscape);
+    };
+  }, []);
+
   const navigate = useNavigate();
+
+  // Handlers for modal opening and closing
 
   const handleLoginClick = () => {
     setActiveModal("login");
@@ -43,7 +59,17 @@ function App() {
     setActiveModal("signup");
   };
 
-  const handleSearchClick = () => {
+  const handleChangeNameClick = () => {
+    setActiveModal("changeName");
+  };
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+
+  // Functions for handling user actions
+
+  const handleSearch = () => {
     const pokemonName = document
       .getElementById("pokemon-name")
       .value.toLowerCase();
@@ -66,18 +92,10 @@ function App() {
       });
   };
 
-  const handleCustomizeCardClick = (color) => {
+  const handleCustomizeCard = (color) => {
     const updatedPokemon = { ...currentPokemon, color };
     setPokemonCards([updatedPokemon, ...pokemonCards]);
     setActiveModal("confirmation");
-  };
-
-  const handleChangeNameClick = () => {
-    setActiveModal("changeName");
-  };
-
-  const closeActiveModal = () => {
-    setActiveModal("");
   };
 
   const handleSignUp = ({ name, email, password }) => {
@@ -136,7 +154,7 @@ function App() {
                 <Main
                   handleLoginClick={handleLoginClick}
                   isLoggedIn={isLoggedIn}
-                  handleSearchClick={handleSearchClick}
+                  handleSearch={handleSearch}
                 />
               }
             />
@@ -162,6 +180,7 @@ function App() {
         </div>
       </div>
       {isLoading && <Preloader />}
+
       <LoginModal
         isOpen={activeModal === "login"}
         handleCloseClick={closeActiveModal}
@@ -177,7 +196,7 @@ function App() {
       <CustomizeCardModal
         activeModal={activeModal}
         handleCloseClick={closeActiveModal}
-        handleCustomizeCardClick={handleCustomizeCardClick}
+        handleCustomizeCard={handleCustomizeCard}
         currentPokemon={currentPokemon}
       />
       <ConfirmationModal

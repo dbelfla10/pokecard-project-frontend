@@ -24,3 +24,15 @@
   margin: 0;
   color: #434343;
 }
+
+@media screen and (max-width: 627px) {
+  .footer__author {
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .footer__date {
+    font-size: 14px;
+    line-height: 1;
+  }
+}
