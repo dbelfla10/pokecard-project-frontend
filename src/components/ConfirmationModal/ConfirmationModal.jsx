@@ -12,16 +12,19 @@ function ConfirmationModal({ activeModal, handleCloseClick }) {
         }`}
       >
         <img
-          className="modal__confirmation-text"
+          className="modal__confirmation-text-img"
           src={ConfirmationText}
           alt="confirmation text"
         />
+        <p className="modal__confirmation-text">
+          View your card in your profile
+        </p>
         <button
           className="modal__submit"
           type="button"
           onClick={handleCloseClick}
         >
-          Ok!
+          Ok
         </button>
       </div>
     </div>

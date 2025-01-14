@@ -11,6 +11,7 @@ import SignUpModal from "../SignUpModal/SignUpModal";
 import CustomizeCardModal from "../CustomizeCardModal/CustomizeCardModal";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 import ErrorModal from "../ErrorModal/ErrorModal";
+import ChangeNameModal from "../ChangeNameModal/ChangeNameModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import Preloader from "../Preloader/Preloader";
 import { getPokemon } from "../../utils/api";
@@ -71,6 +72,10 @@ function App() {
     setActiveModal("confirmation");
   };
 
+  const handleChangeNameClick = () => {
+    setActiveModal("changeName");
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -98,6 +103,12 @@ function App() {
     setUser(null);
     setIsLoggedIn(false);
     navigate("/");
+  };
+
+  const handleChangeName = ({ name }) => {
+    const newUser = { ...user, name };
+    setUser(newUser);
+    closeActiveModal();
   };
 
   const handleAddCard = () => {
@@ -139,6 +150,7 @@ function App() {
                     handleAddCard={handleAddCard}
                     handleDeleteCard={handleDeleteCard}
                     user={user}
+                    handleChangeNameClick={handleChangeNameClick}
                   />
                 </ProtectedRoute>
               }
@@ -175,6 +187,12 @@ function App() {
       <ErrorModal
         activeModal={activeModal}
         handleCloseClick={closeActiveModal}
+      />
+      <ChangeNameModal
+        isOpen={activeModal === "changeName"}
+        handleCloseClick={closeActiveModal}
+        user={user}
+        handleChangeName={handleChangeName}
       />
     </div>
   );

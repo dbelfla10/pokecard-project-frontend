@@ -5,6 +5,11 @@
   width: fit-content;
 }
 
-.modal__confirmation-text {
+.modal__confirmation-text-img {
   max-width: 500px;
+}
+
+.modal__confirmation-text {
+  font-size: 20px;
+  font-weight: 500;
 }

@@ -9,6 +9,7 @@ function Profile({
   handleAddCard,
   handleDeleteCard,
   user,
+  handleChangeNameClick,
 }) {
   const userName = user && user.name ? user.name : "Username";
 
@@ -22,7 +23,11 @@ function Profile({
         ></img>
         <p className="profile__username">Master {userName}</p>
         <div className="profile__buttons">
-          <button type="button" className="profile__change-name-btn">
+          <button
+            type="button"
+            className="profile__change-name-btn"
+            onClick={handleChangeNameClick}
+          >
             Change name
           </button>
           <button

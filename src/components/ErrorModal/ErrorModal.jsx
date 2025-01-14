@@ -11,7 +11,7 @@ function ErrorModal({ activeModal, handleCloseClick }) {
       >
         <img className="modal__error-text" src={notFound} alt="Error text" />
         <p className="modal__error-message">
-          Double check the spelling of your Pokemon name...
+          Double-check the spelling of your Pokémon name...
         </p>
         <button
           className="modal__submit"
