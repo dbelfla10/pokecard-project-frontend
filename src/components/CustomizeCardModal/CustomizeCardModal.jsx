@@ -39,7 +39,7 @@ function CustomizeCardModal({
           <option value="#BE9FEE">Purple</option>
         </select>
         <button
-          className="modal__submit"
+          className="modal__submit modal__submit_type_card"
           type="button"
           onClick={() => handleCustomizeCard(color)}
         >

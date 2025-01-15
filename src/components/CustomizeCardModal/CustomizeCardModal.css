@@ -34,3 +34,30 @@
   border-bottom: 2px solid #ffe365;
   cursor: pointer;
 }
+
+@media screen and (max-width: 627px) {
+  .modal__content_type_card {
+    padding: 30px 10px;
+  }
+
+  .modal__title_type_card {
+    margin: 30px 20px 15px;
+    font-size: 16px;
+  }
+
+  .modal__input_type_card {
+    margin: 10px 20px 10px;
+    width: 300px;
+  }
+
+  .modal__submit_type_card {
+    margin: 15px 20px 0;
+  }
+
+  .modal__discard-btn {
+    bottom: 33px;
+    left: 125px;
+    font-size: 16px;
+    margin-left: 12px;
+  }
+}

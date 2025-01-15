@@ -33,20 +33,6 @@ function App() {
     }
   }, []);
 
-  useEffect(() => {
-    const handleCloseEscape = (e) => {
-      if (e.key === "Escape") {
-        closeActiveModal();
-      }
-    };
-
-    document.addEventListener("keydown", handleCloseEscape);
-
-    return () => {
-      document.removeEventListener("keydown", handleCloseEscape);
-    };
-  }, []);
-
   const navigate = useNavigate();
 
   // Handlers for modal opening and closing
@@ -119,6 +105,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("user");
     setUser(null);
+    setPokemonCards([]);
     setIsLoggedIn(false);
     navigate("/");
   };
@@ -136,6 +123,43 @@ function App() {
   const handleDeleteCard = (id) => {
     setPokemonCards(pokemonCards.filter((card) => card.id !== id));
   };
+
+  // Event Listeners
+
+  useEffect(() => {
+    const handleCloseEscape = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    const handleEnterLogin = (e) => {
+      if (e.key === "enter" && activeModal === "login") {
+        handleLogin();
+      }
+    };
+    const handleEnterSignUp = (e) => {
+      if (e.key === "enter" && activeModal === "signup") {
+        handleSignUp();
+      }
+    };
+    const handleEnterChangeName = (e) => {
+      if (e.key === "enter" && activeModal === "changeName") {
+        handleChangeName();
+      }
+    };
+
+    document.addEventListener("keydown", handleCloseEscape);
+    document.addEventListener("keydown", handleEnterLogin);
+    document.addEventListener("keydown", handleEnterSignUp);
+    document.addEventListener("keydown", handleEnterChangeName);
+
+    return () => {
+      document.removeEventListener("keydown", handleCloseEscape);
+      document.removeEventListener("keydown", handleEnterLogin);
+      document.removeEventListener("keydown", handleEnterSignUp);
+      document.removeEventListener("keydown", handleEnterChangeName);
+    };
+  }, []);
 
   return (
     <div className="page">

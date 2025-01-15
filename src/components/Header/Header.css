@@ -106,20 +106,42 @@
   .header {
     padding: 26px 12px;
   }
+
   .header__content {
     padding: 0 20px;
   }
+
   .header__logo {
     margin: 0;
     padding: 0;
     width: 119px;
     height: 34px;
   }
+
   .header__login-btn {
     margin: 0 23px 0 auto;
     font-size: 16px;
   }
+
   .header__signup-btn {
     font-size: 16px;
+  }
+
+  .header__user {
+    margin: 0;
+    display: none;
+  }
+
+  .header__make-card-btn {
+    margin: 0 18px 0 auto;
+    font-size: 15px;
+  }
+
+  .header__profile-btn {
+    font-size: 15px;
+  }
+
+  .header__user-icon {
+    display: none;
   }
 }

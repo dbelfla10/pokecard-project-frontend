@@ -13,11 +13,13 @@
   max-width: 640px;
   align-items: center;
   text-align: center;
+  width: 100%;
 }
 
 .profile__text-image {
-  width: 640px;
-  height: 67px;
+  width: 100%;
+  max-width: 640px;
+  height: 100%;
 }
 
 .profile__username {
@@ -66,4 +68,22 @@
   cursor: pointer;
   color: black;
   border-bottom: 2px solid #ffe365;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    margin: 80px 0 40px;
+  }
+
+  .profile__username {
+    font-size: 16px;
+  }
+
+  .profile__change-name-btn {
+    font-size: 16px;
+  }
+
+  .profile__logout-btn {
+    font-size: 16px;
+  }
 }

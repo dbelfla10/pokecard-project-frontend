@@ -13,6 +13,12 @@ function Main({ isLoggedIn, handleLoginClick, handleSearch }) {
     setInputValue(e.target.value);
   };
 
+  const handleEnterSearch = (e) => {
+    if (e.key === "Enter" && inputValue.trim() !== "") {
+      handleSearch();
+    }
+  };
+
   return (
     <main>
       <section className="hero">
@@ -33,6 +39,7 @@ function Main({ isLoggedIn, handleLoginClick, handleSearch }) {
                   placeholder="Pokémon name"
                   value={inputValue}
                   onChange={handleInputChange}
+                  onKeyDown={handleEnterSearch}
                 />
                 <button
                   className="hero__search-btn"
