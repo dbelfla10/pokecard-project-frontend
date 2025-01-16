@@ -28,4 +28,4 @@ Pokecard is an app that allows users to generate Pokémon cards. The generated c
 
 This webpage is deployed to GitHub Pages
 
-- Coming soon!
+- [Pokecard APP](https://dbelfla10.github.io/pokecard-project-frontend/)
