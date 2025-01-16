@@ -61,3 +61,10 @@
     margin-left: 12px;
   }
 }
+
+@media screen and (max-height: 715px) {
+  .modal_type_card {
+    position: absolute;
+    height: 915px;
+  }
+}

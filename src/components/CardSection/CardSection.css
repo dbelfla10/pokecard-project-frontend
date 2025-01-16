@@ -60,4 +60,16 @@
     padding: 40px 10px 120px;
     margin-top: 60px;
   }
+
+  .card-section__no-cards-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  .card-section__no-cards-btn {
+    width: 140px;
+    height: 40px;
+    font-size: 16px;
+  }
 }

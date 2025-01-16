@@ -14,3 +14,9 @@
   padding: 0 20px;
   margin: 0 auto;
 }
+
+@media screen and (max-height: 715px) {
+  .page {
+    height: 910px;
+  }
+}
