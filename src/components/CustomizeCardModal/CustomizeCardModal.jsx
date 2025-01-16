@@ -12,7 +12,11 @@ function CustomizeCardModal({
   const [color, setColor] = useState("");
 
   return (
-    <div className={`modal ${activeModal === "card" && "modal_opened"}`}>
+    <div
+      className={`modal ${
+        activeModal === "card" && "modal_opened"
+      } modal_type_card`}
+    >
       <div
         className={`modal__content modal__content_type_card ${
           activeModal && "modal__content_opened"

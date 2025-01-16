@@ -1,8 +1,31 @@
-# React + Vite
+# Pokecard app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pokecard is an app that allows users to generate Pokémon cards. The generated cards feature colors chosen by the user and data sourced from the PokéAPI.
 
-Currently, two official plugins are available:
+![Charizard](/src/assets/demo/cards.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- Search for your favorite Pokémon
+- View Pokémon stats
+- Customize card colors
+- Save cards to collection
+- Edit your username
+- Download or delete cards
+- User registration
+- Log in and log out
+- Pokeball preloader
+
+## Tech Stack
+
+- React, JavaScript, CSS
+- Responsive design
+- API interaction
+- React router
+- Vite
+
+## Deployment
+
+This webpage is deployed to GitHub Pages
+
+- Coming soon!
