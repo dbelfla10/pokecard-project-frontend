@@ -1,0 +1,30 @@
+.modal__login-button {
+  position: absolute;
+  bottom: 43px;
+  left: 172px;
+  border: none;
+  color: #323232;
+  background-color: transparent;
+  width: 83px;
+  height: 29px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 0px;
+  margin-left: 12px;
+}
+
+.modal__login-button:hover {
+  color: #000;
+  border-bottom: 2px solid #ffe365;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 627px) {
+  .modal__login-button {
+    bottom: 35px;
+    left: 125px;
+    font-size: 16px;
+  }
+}

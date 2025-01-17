@@ -1,0 +1,41 @@
+.modal__signup-button {
+  position: absolute;
+  bottom: 43px;
+  left: 172px;
+  border: none;
+  color: #323232;
+  background-color: transparent;
+  width: 83px;
+  height: 29px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 0px;
+  margin-left: 12px;
+}
+
+.modal__signup-button:hover {
+  color: #000;
+  border-bottom: 2px solid #ffe365;
+  cursor: pointer;
+}
+
+.modal__error {
+  position: absolute;
+  color: rgb(239, 115, 115);
+  font-size: 16px;
+  margin: 2px 0 0 10px;
+}
+
+@media screen and (max-width: 627px) {
+  .modal__signup-button {
+    bottom: 35px;
+    left: 125px;
+    font-size: 16px;
+  }
+  .modal__error {
+    font-size: 14px;
+    margin: 3px 0 0 5px;
+  }
+}
