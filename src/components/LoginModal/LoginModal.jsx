@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 const LoginModal = ({
   handleCloseClick,
@@ -9,22 +8,18 @@ const LoginModal = ({
   handleLogin,
   handleSignupClick,
 }) => {
-  const [email, setEmail] = useState("");
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const [password, setPassword] = useState("");
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormAndValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin({ email, password });
+    if (isValid) {
+      handleLogin(values);
+      resetForm();
+    }
   };
 
-  const disableSubmit = !email || !password;
+  const disableSubmit = !values.email || !values.password;
 
   return (
     <ModalWithForm
@@ -42,10 +37,12 @@ const LoginModal = ({
           className="modal__input"
           id="email"
           placeholder="Email"
-          value={email}
-          onChange={handleEmailChange}
+          name="email"
+          value={values.email || ""}
+          onChange={handleChange}
           required
         />
+        <span className="modal__error">{errors.email}</span>
       </label>
       <label htmlFor="password" className="modal__label">
         Password{""}
@@ -54,10 +51,12 @@ const LoginModal = ({
           className="modal__input"
           id="password"
           placeholder="Password"
-          value={password}
-          onChange={handlePasswordChange}
+          name="password"
+          value={values.password || ""}
+          onChange={handleChange}
           required
         />
+        <span className="modal__error">{errors.password}</span>
       </label>
       <button
         onClick={handleSignupClick}

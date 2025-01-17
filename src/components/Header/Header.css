@@ -1,6 +1,6 @@
 .header {
   padding: 33px 0px;
-  font-family: "Lato";
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   font-weight: 700;
   background-color: white;
   display: flex;

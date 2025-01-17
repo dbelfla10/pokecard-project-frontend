@@ -132,32 +132,11 @@ function App() {
         closeActiveModal();
       }
     };
-    const handleEnterLogin = (e) => {
-      if (e.key === "enter" && activeModal === "login") {
-        handleLogin();
-      }
-    };
-    const handleEnterSignUp = (e) => {
-      if (e.key === "enter" && activeModal === "signup") {
-        handleSignUp();
-      }
-    };
-    const handleEnterChangeName = (e) => {
-      if (e.key === "enter" && activeModal === "changeName") {
-        handleChangeName();
-      }
-    };
 
     document.addEventListener("keydown", handleCloseEscape);
-    document.addEventListener("keydown", handleEnterLogin);
-    document.addEventListener("keydown", handleEnterSignUp);
-    document.addEventListener("keydown", handleEnterChangeName);
 
     return () => {
       document.removeEventListener("keydown", handleCloseEscape);
-      document.removeEventListener("keydown", handleEnterLogin);
-      document.removeEventListener("keydown", handleEnterSignUp);
-      document.removeEventListener("keydown", handleEnterChangeName);
     };
   }, []);
 

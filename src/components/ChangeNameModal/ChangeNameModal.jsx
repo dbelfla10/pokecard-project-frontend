@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./ChangeNameModal.css";
+import { useFormAndValidation } from "../../hooks/useFormAndValidation";
 
 const ChangeNameModal = ({
   handleCloseClick,
@@ -9,17 +8,19 @@ const ChangeNameModal = ({
   user,
   handleChangeName,
 }) => {
-  const [name, setName] = useState("");
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormAndValidation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleChangeName({ name });
+    if (isValid) {
+      handleChangeName(values);
+      resetForm();
+      console.log(values);
+    }
   };
 
-  const disableSubmit = !name;
+  const disableSubmit = !values.name;
 
   return (
     <ModalWithForm
@@ -37,10 +38,12 @@ const ChangeNameModal = ({
           className="modal__input"
           id="change-name"
           placeholder={user && user.name ? user.name : "Enter your name"}
-          value={name}
-          onChange={handleNameChange}
+          name="name"
+          value={values.name || ""}
+          onChange={handleChange}
           required
         />
+        <span className="modal__error">{errors.name}</span>
       </label>
       <button
         onClick={handleCloseClick}
